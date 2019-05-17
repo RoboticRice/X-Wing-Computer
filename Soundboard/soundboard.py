@@ -78,7 +78,7 @@ while True:
     	if (counter >= 15):
     		status[1] = False
     		counter = 0
-    	else if (in1  == False):
+    	elif (in1  == False):
             if (status[1] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire2))
     			status[1] = True
