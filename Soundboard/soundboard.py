@@ -94,13 +94,14 @@ while True:
         if (in2 == False):
             ChannelA.play(fire3)
 
-        if (in6 == False):
-        	raise tempException("These aren't the droids you're looking for.")
-
         if (in3 == False):
             pygame.mixer.music.fadeout(250)
         if (in4 == False):
             pygame.mixer.music.play(-1)
+
+        if (in5 == False):
+        	raise tempException("These aren't the droids you're looking for.")
+        	
         sleep(.01)
     except tempException as e:
     	print str(e)
