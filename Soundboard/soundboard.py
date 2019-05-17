@@ -4,7 +4,8 @@ import RPi.GPIO as GPIO
 from sys import exit
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(23, GPIO.IN)
+GPIO.setup(23, GPIO.IN, pull_upp_down=GPIO.PUD_UP)
+#GPIO.setup(23, GPIO.IN)
 #GPIO.setup(24, GPIO.IN)
 #GPIO.setup(25, GPIO.IN)
 
@@ -22,8 +23,8 @@ print "Sampler Ready."
 
 while True:
    try:
-      if (GPIO.input(23) == True):
-         soundChannelA.play(sndC)
+      if (GPIO.input(23) != True):
+         soundChannelA.play(sndA)
       #if (GPIO.input(24) == True):
       #   soundChannelB.play(sndB)
       #if (GPIO.input(25) == True):
