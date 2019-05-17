@@ -34,26 +34,34 @@ GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 pygame.mixer.init(48000, -16, 1, 1024)
+#Test this later: New in pygame 2(when compiled with SDL2) - size can be 32 (32bit floats).
 
 #Set-Up Sound Files
-#pygame.mixer.music.load("OTHER/Comm chatter.wav") #future implimentation - for now, it's too quite to test with
-pygame.mixer.music.load("OTHER/OST Cantina Band.wav")
-fire1 = pygame.mixer.Sound("XWING/XWing fire.wav")
+pygame.mixer.music.load("OTHER/Comm chatter.wav")
+#pygame.mixer.music.load("OTHER/OST Cantina Band.wav")
+fire1 = pygame.mixer.Sound("OTHER/OST Cantina Band.wav") #XWING/XWing fire.wav")
 fire2 = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
 fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
 
 #Set-Up Audio Channels (each channel plays audio seperate from the other)
-ChannelA = pygame.mixer.Channel(2) #Sound Effects
+pygame.mixer.set_num_channels(5)
+ChannelA = pygame.mixer.Channel(0) #Sound Effects
 #ChannelB = pygame.mixer.Channel(2) #Sound Effects
 #ChannelC = pygame.mixer.Channel(2) #Sound Effects
-pygame.mixer.music.play(-1)
+#pygame.mixer.music.play(-1) #uncomment to start default with music playing
 
 print "Nothing. I'm all right."
+
+myInt = 1
 
 while True:
     try:
         if (GPIO.input(4)  == False):
-            ChannelA.play(fire1)
+            #ChannelA.play(fire1)
+            pygame.mixer.Channel(myInt).play(fire1)
+            myInt = myInt+1
+            if (myInt > 4)
+            	myInt = 1
         if (GPIO.input(17) == False):
             ChannelA.play(fire2)
         if (GPIO.input(18) == False):
