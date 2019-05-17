@@ -101,12 +101,14 @@ while True:
 
         if (in5 == False):
         	raise tempException("These aren't the droids you're looking for.")
-        	
+
         sleep(.01)
     except tempException as e:
     	print str(e)
+    	pygame.mixer.stop()
+    	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
-    	pygame.mixer.music.stop()
+    	#pygame.mixer.stop() #technically not needed, as exit stops everything
     	GPIO.cleanup()
     	print "YAHOOOOO! You're all clear, kid."
         exit()
