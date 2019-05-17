@@ -80,7 +80,7 @@ while True:
     		counter = 0
     	elif (in1  == False):
     		counter = counter+1
-            if (status[1] == False): #not triggered, but should have
+        	if (status[1] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire2))
     			status[1] = True
     	else:
@@ -99,5 +99,6 @@ while True:
         sleep(.01)
     except KeyboardInterrupt:
     	pygame.mixer.music.stop()
+    	GPIO.cleanup()
     	print "YAHOOOOO! You're all clear, kid."
         exit()
