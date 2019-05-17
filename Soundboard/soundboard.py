@@ -37,7 +37,7 @@ pygame.mixer.init(48000, -16, 1, 1024)
 
 #Set-Up Sound Files
 #pygame.mixer.music.load("OTHER/Comm chatter.wav") #future implimentation - for now, it's too quite to test with
-pygame.mixer.music.load("OTHER/OST Cantina band.wav")
+pygame.mixer.music.load("OTHER/OST Cantina Band.wav")
 fire1 = pygame.mixer.Sound("XWING/XWing fire.wav")
 fire2 = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
 fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
