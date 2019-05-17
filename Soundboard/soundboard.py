@@ -40,7 +40,7 @@ pygame.mixer.init(48000, -16, 1, 1024)
 pygame.mixer.music.load("OTHER/Com chatter.wav")
 #pygame.mixer.music.load("OTHER/OST Cantina Band.wav")
 fire1 = "XWING/XWing fire.wav"
-fire2 = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
+fire2 = "XWING/XWing fire 2 mod.wav"
 fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
 
 #Set-Up Audio Channels (each channel plays audio seperate from the other)
@@ -53,6 +53,7 @@ ChannelA = pygame.mixer.Channel(0) #Sound Effects
 
 #Init the button press stuff
 status = [False]*5 #currently using 5 inputs
+counter = 0
 
 print "Nothing. I'm all right."
 
@@ -65,6 +66,7 @@ while True:
     	in3 = GPIO.input(22)
     	in4 = GPIO.input(23)
 
+    	#This will play once, when pressed
         if (in0  == False):
             if (status[0] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
@@ -72,13 +74,27 @@ while True:
     	else:
     		status[0] = False
 
-        if (in1 == False):
-            ChannelA.play(fire2)
-        if (GPIO.input(18) == False):
+    	#This will play once when pressed, and once every 15 loops after (~15ms)
+    	if (counter >= 15):
+    		status[1] = False
+    		counter = 0
+    	else if (in1  == False):
+            if (status[1] == False): #not triggered, but should have
+    			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire2))
+    			status[1] = True
+    			counter = counter+1
+    	else:
+    		status[1] = False
+    		counter = 0
+
+    	#This will play WHILE pressed
+        if (in2 == False):
             ChannelA.play(fire3)
-        if (GPIO.input(22) == False):
+
+
+        if (in3 == False):
             pygame.mixer.music.fadeout(250)
-        if (GPIO.input(23) == False):
+        if (in4 == False):
             pygame.mixer.music.play(-1)
         sleep(.01)
     except KeyboardInterrupt:
