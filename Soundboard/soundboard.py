@@ -65,7 +65,7 @@ while True:
             pygame.mixer.music.fadeout(250)
         if (GPIO.input(23) == False):
             pygame.mixer.music.play(-1)
-        sleep(.01)
+        sleep(.1)
     except KeyboardInterrupt:
     	pygame.mixer.music.stop()
     	print "YAHOOOOO! You're all clear, kid."
