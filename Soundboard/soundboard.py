@@ -61,7 +61,7 @@ while True:
         if (GPIO.input(18) == False):
             ChannelA.play(fire3)
         if (GPIO.input(17) == False):
-            pygame.mixer.music.fadeout()
+            pygame.mixer.music.fadeout(250)
         if (GPIO.input(18) == False):
             pygame.mixer.music.play(-1)
         sleep(.01)
