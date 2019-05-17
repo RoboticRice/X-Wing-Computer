@@ -1,3 +1,7 @@
+#Project Specific Ignores
+#Temporarily ignore wav files
+*.wav
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
