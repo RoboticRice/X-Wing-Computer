@@ -69,21 +69,19 @@ while True:
     	#This will play once, when pressed
         if (in0  == False):
             if (status[0] == False): #not triggered, but should have
-    			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
+    			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire2))
     			status[0] = True
     	else:
     		status[0] = False
 
-    	print str(counter)
-
-    	#This will play once when pressed, and once every 15 loops after (~15ms)
-    	if (counter >= 25):
+    	#This will play once when pressed, and once every 25 loops after (~15ms)
+    	if (counter >= 30):
     		status[1] = False
     		counter = 0
     	elif (in1  == False):
     		counter = counter+1
         	if (status[1] == False): #not triggered, but should have
-    			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire2))
+    			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
     			status[1] = True
     	else:
     		status[1] = False
