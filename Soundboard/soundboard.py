@@ -5,8 +5,6 @@
 # Inspired by:
 #	https://makezine.com/projects/make-33/simple-soundboard/
 
-print "Luke, you’ve switched off your targeting computer. What’s wrong?"
-
 import pygame.mixer
 from time import sleep
 import RPi.GPIO as GPIO
