@@ -53,7 +53,7 @@ ChannelA = pygame.mixer.Channel(0) #Sound Effects
 
 print "Nothing. I'm all right."
 
-status = [0,0,0,False]
+status = [0,0,0,0,False]
 status[4] = False
 
 while True:
