@@ -31,7 +31,7 @@ GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-#GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 pygame.mixer.init(48000, -16, 1, 1024)
 #Test this later: New in pygame 2(when compiled with SDL2) - size can be 32 (32bit floats).
@@ -52,8 +52,10 @@ ChannelA = pygame.mixer.Channel(0) #Sound Effects
 
 
 #Init the button press stuff
-status = [False]*5 #currently using 5 inputs
+status = [False]*6 #currently using 6 inputs
 counter = 0
+class tempException(Exception):
+    pass
 
 print "Nothing. I'm all right."
 
@@ -65,6 +67,7 @@ while True:
     	in2 = GPIO.input(18)
     	in3 = GPIO.input(22)
     	in4 = GPIO.input(23)
+    	in5 = GPIO.input(27)
 
     	#This will play once, when pressed
         if (in0  == False):
@@ -87,16 +90,20 @@ while True:
     		status[1] = False
     		counter = 0
 
-    	#This will play WHILE pressed
+    	#This will play WHILE pressed (and interupt previous playings of this sfx)
         if (in2 == False):
             ChannelA.play(fire3)
 
+        if (in6 == False):
+        	raise tempException("These aren't the droids you're looking for.")
 
         if (in3 == False):
             pygame.mixer.music.fadeout(250)
         if (in4 == False):
             pygame.mixer.music.play(-1)
         sleep(.01)
+    except tempException as e:
+    	print str(e)
     except KeyboardInterrupt:
     	pygame.mixer.music.stop()
     	GPIO.cleanup()
