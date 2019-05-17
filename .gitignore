@@ -1,6 +1,9 @@
 #Project Specific Ignores
 #Temporarily ignore wav files
 *.wav
+!XWing fire*
+!Cantina*
+!Com*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
