@@ -39,7 +39,7 @@ pygame.mixer.init(48000, -16, 1, 1024)
 #Set-Up Sound Files
 pygame.mixer.music.load("OTHER/Com chatter.wav")
 #pygame.mixer.music.load("OTHER/OST Cantina Band.wav")
-fire1 = pygame.mixer.Sound("OTHER/OST Cantina Band.wav") #XWING/XWing fire.wav")
+fire1 = "XWING/XWing fire.wav"
 fire2 = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
 fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
 
@@ -56,8 +56,7 @@ print "Nothing. I'm all right."
 while True:
     try:
         if (GPIO.input(4)  == False):
-            #ChannelA.play(fire1)
-            pygame.mixer.find_channel(True).play(pygame.mixer.Sound("OTHER/OST Cantina Band.wav")) #trying to get this to play mmultiple times on dif channels, but it just restarts...
+            pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
         if (GPIO.input(17) == False):
             ChannelA.play(fire2)
         if (GPIO.input(18) == False):
