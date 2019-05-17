@@ -30,7 +30,7 @@ GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-#GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 pygame.mixer.init(48000, -16, 1, 1024)
@@ -67,7 +67,8 @@ while True:
     	in2 = GPIO.input(18)
     	in3 = GPIO.input(22)
     	in4 = GPIO.input(23)
-    	in5 = GPIO.input(27)
+    	in5 = GPIO.input(25)
+    	in6 = GPIO.input(27)
 
     	#This will play once, when pressed
         if (in0  == False):
@@ -86,7 +87,7 @@ while True:
         	if (status[1] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
     			status[1] = True
-    	else:
+    	else: #elif (in1  == False) && (count != 0): counter++ #add this so it can't be replayed until the time limit has passed, even if you release and re-press
     		status[1] = False
     		counter = 0
 
@@ -101,12 +102,15 @@ while True:
 
         if (in5 == False):
         	raise tempException("These aren't the droids you're looking for.")
+        if (in6 == False):
+        	pygame.mixer.music.fadeout(250)
+        	raise tempException("These aren't the droids you're looking for.")
 
         sleep(.01)
     except tempException as e:
     	print str(e)
     	pygame.mixer.stop()
-    	pygame.mixer.music.stop()
+    	#pygame.mixer.music.stop()
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
     	#pygame.mixer.stop() #technically not needed, as exit stops everything
