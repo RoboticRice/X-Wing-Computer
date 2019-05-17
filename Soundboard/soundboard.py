@@ -53,10 +53,16 @@ ChannelA = pygame.mixer.Channel(0) #Sound Effects
 
 print "Nothing. I'm all right."
 
+status[4] = False
+
 while True:
     try:
         if (GPIO.input(4)  == False):
-            pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
+            if (status[4] == False): #not triggered, but should have
+    			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
+    			status[4] = True
+    	else:
+    		status[4] = False
         if (GPIO.input(17) == False):
             ChannelA.play(fire2)
         if (GPIO.input(18) == False):
@@ -65,7 +71,7 @@ while True:
             pygame.mixer.music.fadeout(250)
         if (GPIO.input(23) == False):
             pygame.mixer.music.play(-1)
-        sleep(.1)
+        sleep(.15)
     except KeyboardInterrupt:
     	pygame.mixer.music.stop()
     	print "YAHOOOOO! You're all clear, kid."
