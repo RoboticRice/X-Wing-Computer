@@ -45,6 +45,7 @@ fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
 
 #Set-Up Audio Channels (each channel plays audio seperate from the other)
 pygame.mixer.set_num_channels(5)
+pygame.mixer.set_reserved(0)
 ChannelA = pygame.mixer.Channel(0) #Sound Effects
 #ChannelB = pygame.mixer.Channel(2) #Sound Effects
 #ChannelC = pygame.mixer.Channel(2) #Sound Effects
@@ -58,10 +59,7 @@ while True:
     try:
         if (GPIO.input(4)  == False):
             #ChannelA.play(fire1)
-            pygame.mixer.Channel(myInt).play(fire1)
-            myInt = myInt+1
-            if (myInt > 4):
-            	myInt = 1
+            pygame.mixer.find_channel(True).play(fire1)
         if (GPIO.input(17) == False):
             ChannelA.play(fire2)
         if (GPIO.input(18) == False):
