@@ -53,20 +53,26 @@ ChannelA = pygame.mixer.Channel(0) #Sound Effects
 
 #Init the button press stuff
 status = [False]*5 #currently using 5 inputs
-in0 = GPIO.input(4)
 
 print "Nothing. I'm all right."
 
 #pygame.mixer.music.play(-1) #uncomment to start default with music playing
 while True:
     try:
+    	in0 = GPIO.input(4)
+    	in1 = GPIO.input(17)
+    	in2 = GPIO.input(18)
+    	in3 = GPIO.input(22)
+    	in4 = GPIO.input(23)
+
         if (in0  == False):
             if (status[0] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(pygame.mixer.Sound(fire1))
     			status[0] = True
     	else:
     		status[0] = False
-        if (GPIO.input(17) == False):
+
+        if (in1 == False):
             ChannelA.play(fire2)
         if (GPIO.input(18) == False):
             ChannelA.play(fire3)
