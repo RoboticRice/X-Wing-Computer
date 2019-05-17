@@ -77,7 +77,7 @@ while True:
     	print str(counter)
 
     	#This will play once when pressed, and once every 15 loops after (~15ms)
-    	if (counter >= 15):
+    	if (counter >= 25):
     		status[1] = False
     		counter = 0
     	elif (in1  == False):
