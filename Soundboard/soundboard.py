@@ -106,6 +106,7 @@ while True:
     except tempException as e:
     	print str(e)
     	pygame.mixer.stop()
+    	pygame.mixer.music.stop()
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
     	#pygame.mixer.stop() #technically not needed, as exit stops everything
