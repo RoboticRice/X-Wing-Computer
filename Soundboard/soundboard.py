@@ -60,7 +60,7 @@ while True:
             #ChannelA.play(fire1)
             pygame.mixer.Channel(myInt).play(fire1)
             myInt = myInt+1
-            if (myInt > 4)
+            if (myInt > 4):
             	myInt = 1
         if (GPIO.input(17) == False):
             ChannelA.play(fire2)
