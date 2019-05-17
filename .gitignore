@@ -2,7 +2,7 @@
 #Temporarily ignore wav files
 *.wav
 !XWing fire*
-!Cantina*
+!OST*
 !Com*
 
 # Byte-compiled / optimized / DLL files

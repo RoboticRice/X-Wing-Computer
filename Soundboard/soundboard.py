@@ -37,11 +37,9 @@ pygame.mixer.init(48000, -16, 1, 1024)
 
 #Set-Up Sound Files
 #pygame.mixer.music.load("OTHER/Comm chatter.wav") #future implimentation - for now, it's too quite to test with
-pygame.mixer.music.load("OTHER/Cantina band.wav")
-pygame.mixer.music.queue("OTHER/Cantina band 2.wav")
-pygame.mixer.music.queue("OTHER/Cantina band 3.wav")
+pygame.mixer.music.load("OTHER/OST Cantina band.wav")
 fire1 = pygame.mixer.Sound("XWING/XWing fire.wav")
-fire2 = pygame.mixer.Sound("XWING/XWing fire 2.wav") #need to edit wav file to remove leading dead space
+fire2 = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
 fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
 
 #Set-Up Audio Channels (each channel plays audio seperate from the other)
