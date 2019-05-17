@@ -25,7 +25,7 @@ print "Sampler Ready."
 
 while True:
    try:
-      if (GPIO.input(23) == True):
+      if (GPIO.input(23) == False):
          soundChannelA.play(sndA)
       #if (GPIO.input(24) == True):
       #   soundChannelB.play(sndB)
