@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import pygame.mixer
 from time import sleep
 import RPi.GPIO as GPIO
