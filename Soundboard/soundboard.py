@@ -52,7 +52,7 @@ ChannelA = pygame.mixer.Channel(0) #Sound Effects
 
 
 #Init the button press stuff
-status = [False]*6 #currently using 6 inputs
+status = [False]*2 #currently using states for 2 inputs
 counter = 0
 class tempException(Exception):
     pass
@@ -78,7 +78,7 @@ while True:
     	else:
     		status[0] = False
 
-    	#This will play once when pressed, and once every 25 loops after (~15ms)
+    	#This will play once when pressed, and once every couple dozen loops after (~15ms)
     	if (counter >= 30):
     		status[1] = False
     		counter = 0
@@ -93,7 +93,7 @@ while True:
 
     	#This will play WHILE pressed (and interupt previous playings of this sfx)
         if (in2 == False):
-            ChannelA.play(fire3)
+            ChannelA.play(fire3) #ChannelA is my dedicated channel, SFX played on this channel interupt any other SFX currently playing on this channel. I will use this for the R2 unit
 
         if (in3 == False):
             pygame.mixer.music.fadeout(250)
