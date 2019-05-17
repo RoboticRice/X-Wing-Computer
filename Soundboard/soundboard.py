@@ -57,7 +57,7 @@ while True:
     try:
         if (GPIO.input(4)  == False):
             #ChannelA.play(fire1)
-            pygame.mixer.find_channel(True).play("OTHER/OST Cantina Band.wav") #trying to get this to play mmultiple times on dif channels, but it just restarts...
+            pygame.mixer.find_channel(True).play(pygame.mixer.Sound("OTHER/OST Cantina Band.wav")) #trying to get this to play mmultiple times on dif channels, but it just restarts...
         if (GPIO.input(17) == False):
             ChannelA.play(fire2)
         if (GPIO.input(18) == False):
