@@ -4,6 +4,7 @@
 # https://github.com/RoboticRice
 # Inspired by:
 #	https://makezine.com/projects/make-33/simple-soundboard/
+#	https://thepihut.com/blogs/raspberry-pi-tutorials/27968772-turning-on-an-led-with-your-raspberry-pis-gpio-pins
 
 print "Luke, you've switched off your tageting computer. What's wrong?"
 
@@ -29,7 +30,7 @@ GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-#GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(24, GPIO.OUT) #for LED
 GPIO.setup(25, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
@@ -69,6 +70,11 @@ while True:
     	in4 = GPIO.input(23)
     	in5 = GPIO.input(25)
     	in6 = GPIO.input(27)
+
+    	if (pygame.mixer.music.get_busy())
+    		GPIO.output(24, GPIO.HIGH)
+    	else
+    		GPIO.output(24, GPIO.LOW)
 
     	#This will play once, when pressed
         if (in0  == False):
