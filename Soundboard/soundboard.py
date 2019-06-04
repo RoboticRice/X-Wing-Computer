@@ -71,9 +71,9 @@ while True:
     	in5 = GPIO.input(25)
     	in6 = GPIO.input(27)
 
-    	if (pygame.mixer.music.get_busy())
+    	if (pygame.mixer.music.get_busy()):
     		GPIO.output(24, GPIO.HIGH)
-    	else
+    	else:
     		GPIO.output(24, GPIO.LOW)
 
     	#This will play once, when pressed
