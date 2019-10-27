@@ -91,7 +91,7 @@ while True:
     		else:
     			GPIO.output(24, GPIO.LOW)
     	else:
-    		timer++
+    		timer = timer + 1
 
     	#This will play once, when pressed
         if (in0  == False):
@@ -106,7 +106,7 @@ while True:
     		status[1] = False
     		counter = 0
     	elif (in1  == False):
-    		counter = counter+1
+    		counter = counter + 1
         	if (status[1] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(fire)
     			status[1] = True
