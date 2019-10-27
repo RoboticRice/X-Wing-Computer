@@ -133,7 +133,7 @@ while True:
     	#This will play WHILE pressed (and interupt previous playings of r2d2 sfx)
         if (in4  == False):
             if (status[4] == False): #not triggered, but should have
-    			R2D2.play(r2d2) #R2D2 is a dedicated channel
+    			R2D2.play(r2d3) #R2D2 is a dedicated channel
     			status[4] = True
     	else:
     		status[4] = False
