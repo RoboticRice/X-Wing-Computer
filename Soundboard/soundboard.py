@@ -145,6 +145,7 @@ while True:
     	#pygame.mixer.music.stop() #this would be used to stop music as well, but no music is being used
     	while (inE == False):
     		#Do nothing, this prevents spamming the console with print statements
+    	else:
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
     	#pygame.mixer.stop() #technically not needed, as exit stops everything
