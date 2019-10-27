@@ -132,7 +132,7 @@ while True:
         #if (in4 == False): #play music on infinite loop
         #    pygame.mixer.music.play(-1)
 
-        if (inE == False): #Stops all SFX but music continues
+        if (inE == True): #Stops all SFX but music continues
         	raise tempException("These aren't the droids you're looking for.")
         #if (in6 == False): #Stops all SFX and fades Music out
         #	pygame.mixer.music.fadeout(250)
@@ -143,7 +143,7 @@ while True:
     	print str(e)
     	pygame.mixer.stop()
     	#pygame.mixer.music.stop() #this would be used to stop music as well, but no music is being used
-    	#while (inE == False):
+    	#while (inE == True):
     	#	sleep(.01)
     		#Do nothing, this prevents spamming the console with print statements
     	print "You can go about your business. Move along!"
