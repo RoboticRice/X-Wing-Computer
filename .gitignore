@@ -2,8 +2,6 @@
 #Temporarily ignore wav files
 *.wav
 !XWing fire*
-!OST*
-!Com*
 !Engine*
 
 # Byte-compiled / optimized / DLL files
