@@ -59,6 +59,8 @@ R2D2 = pygame.mixer.Channel(0) #Dedicated channel for R2D2 SFX, any new SFX on t
 #Init the button press stuff
 status = [False]*5 #currently using states for 5 inputs
 counter = 0
+timer = 0
+light = False
 class tempException(Exception):
     pass
 
@@ -80,6 +82,16 @@ while True:
     	#	GPIO.output(24, GPIO.HIGH)
     	#else:
     	#	GPIO.output(24, GPIO.LOW)
+
+    	#set light to blink
+    	if (timer >= 100):
+    		timer = 0
+    		if (light):
+    			GPIO.output(24, GPIO.HIGH)
+    		else:
+    			GPIO.output(24, GPIO.LOW)
+    	else:
+    		timer++
 
     	#This will play once, when pressed
         if (in0  == False):
@@ -146,6 +158,7 @@ while True:
     	while (inE == True):
     		sleep(.03)
     		inE = GPIO.input(4)  #forgot to check inE status
+    		GPIO.output(24, GPIO.HIGH) #set light to be solid when paused
     		#Do nothing, this prevents spamming the console with print statements
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
