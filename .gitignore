@@ -3,6 +3,9 @@
 *.wav
 !XWing fire*
 !Engine*
+!CurtRe*
+!HappyConf*
+!TestyB*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
