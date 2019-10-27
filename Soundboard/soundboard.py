@@ -146,8 +146,7 @@ while True:
     	while (inE == False):
     		sleep(.01)
     		#Do nothing, this prevents spamming the console with print statements
-    	else:
-    		print "You can go about your business. Move along!"
+    	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
     	#pygame.mixer.stop() #technically not needed, as exit stops everything
     	GPIO.cleanup()
