@@ -143,8 +143,8 @@ while True:
     	print str(e)
     	pygame.mixer.stop()
     	#pygame.mixer.music.stop() #this would be used to stop music as well, but no music is being used
-    	#while (inE == True):
-    	#	sleep(.01)
+    	while (inE == True):
+    		sleep(.03)
     		#Do nothing, this prevents spamming the console with print statements
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
