@@ -145,6 +145,7 @@ while True:
     	#pygame.mixer.music.stop() #this would be used to stop music as well, but no music is being used
     	while (inE == True):
     		sleep(.03)
+    		inE = GPIO.input(4)  #forgot to check inE status
     		#Do nothing, this prevents spamming the console with print statements
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
