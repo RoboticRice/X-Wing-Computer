@@ -75,7 +75,7 @@ while True:
     	in2 = GPIO.input(22) #R2
     	in3 = GPIO.input(23) #R2
     	in4 = GPIO.input(25) #R2
-    	#in5 = GPIO.input(27)
+    	#in5 = GPIO.input(27) #auto-R2
 
     	#No longer using ambient music
     	#if (pygame.mixer.music.get_busy()):
