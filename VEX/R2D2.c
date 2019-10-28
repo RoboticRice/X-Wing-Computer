@@ -29,20 +29,42 @@ Additional Notes:
 * Other notes.
 *************************************************************************/
 
+#define AMOUNT 127/10
+
 task main()
 {
 	//Run Once on Init Code Block
 	int speed = 0;
+	/*debug*/
+	int time = 0;
+	bool state = 0;
+	/*end*/
 	bVexAutonomousMode = true;//false;			//Activates Remote Control Mode
 	while (true)									  //Creates and infinite loop
 	{
 		//Main Continuous Code Block
 		motor[port2] = speed;
-		if (SensorValue[in1] == true)
-			speed = 127/10;
-		else if (SensorValue[in2] == true)
-			speed = -127/10;
-		else
-			speed = 0;
+		time = time100[T1];
+		if (SensorValue[in3] == false)
+		{ //manual mode
+			state = true;
+			if (SensorValue[in1] == true)
+				speed = AMOUNT;
+			else if (SensorValue[in2] == true)
+				speed = -AMOUNT;
+			else
+				speed = 0;
+		} else {
+			//auto mode
+			state = false;
+			if (time100[T1] >= 100)
+			{
+				speed = AMOUNT;
+				motor[port2] = speed;
+				wait10Msec(100);
+				speed = 0;
+				time10[T1] = 0;
+			}
+		}
 	}
 }
