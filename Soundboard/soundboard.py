@@ -10,7 +10,7 @@ print "Luke, you've switched off your tageting computer. What's wrong?"
 
 import pygame.mixer
 import time
-#from time import sleep
+from time import sleep
 import RPi.GPIO as GPIO
 from sys import exit
 
