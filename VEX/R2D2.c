@@ -68,7 +68,7 @@ task main()
 		} else {
 			//auto mode
 			auton = true;
-			SensorValue[in4] = true;
+			SensorValue[in4] = false;
 			if (time100[T1] >= 100)
 			{
 				speed = AMOUNT;
