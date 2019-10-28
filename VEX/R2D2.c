@@ -2,6 +2,7 @@
 #pragma config(Sensor, in1,    Clock,          sensorTouch)
 #pragma config(Sensor, in2,    Counter,        sensorTouch)
 #pragma config(Sensor, in3,    Auto,           sensorTouch)
+#pragma config(Sensor, in4,    Latch,          sensorLEDtoVCC)
 #pragma config(Motor,  port1,            ,             tmotorServoStandard, openLoop)
 #pragma config(Motor,  port2,            ,             tmotorServoContinuousRotation, openLoop)
 #pragma config(Motor,  port3,            ,             tmotorVex269, openLoop)
@@ -37,17 +38,27 @@ task main()
 	int speed = 0;
 	/*debug*/
 	int time = 0;
-	bool state = 0;
+	bool auton = 0;
 	/*end*/
 	bVexAutonomousMode = true;//false;			//Activates Remote Control Mode
 	while (true)									  //Creates and infinite loop
 	{
 		//Main Continuous Code Block
 		motor[port2] = speed;
-		time = time100[T1];
+		time = time100[T2];
 		if (SensorValue[in3] == false)
 		{ //manual mode
-			state = true;
+			auton = false;
+
+			if (time100[T2] >= 10)
+			{
+				time100[T2] = 0;
+				if (SensorValue[in4] == false)
+					SensorValue[in4] = true;
+				else
+					SensorValue[in4] = false;
+			}
+
 			if (SensorValue[in1] == true)
 				speed = AMOUNT;
 			else if (SensorValue[in2] == true)
@@ -56,11 +67,14 @@ task main()
 				speed = 0;
 		} else {
 			//auto mode
-			state = false;
+			auton = true;
+			SensorValue[in4] = true;
 			if (time100[T1] >= 100)
 			{
 				speed = AMOUNT;
 				motor[port2] = speed;
+				wait10Msec(100);
+				motor[port2] = -speed;
 				wait10Msec(100);
 				speed = 0;
 				time10[T1] = 0;
