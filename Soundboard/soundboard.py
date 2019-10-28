@@ -138,12 +138,12 @@ while True:
     	else:
     		status[4] = False
 
-    	if (in5 == False):
-    		#the blue button is pressed, activate auto mode for R2D2
-    		def play1():
-			    R2D2.play(r2d1)
-			t = Timer(30.0, play1)
-			t.start()
+    	#if (in5 == False):
+    	#	#the blue button is pressed, activate auto mode for R2D2
+    	#	def play1():
+		#	    R2D2.play(r2d1)
+		#	t = Timer(30.0, play1)
+		#	t.start()
 
 		#No longer using ambient music
         #if (in3 == False): #fades out music
