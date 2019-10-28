@@ -89,8 +89,10 @@ while True:
     		timer = 0
     		if (light):
     			GPIO.output(24, GPIO.HIGH)
+    			light = True
     		else:
     			GPIO.output(24, GPIO.LOW)
+    			light = False
     	else:
     		timer = timer + 1
 
