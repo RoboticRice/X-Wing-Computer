@@ -61,7 +61,7 @@ R2D2 = pygame.mixer.Channel(0) #Dedicated channel for R2D2 SFX, any new SFX on t
 status = [False]*5 #currently using states for 5 inputs
 counter = 0
 timer = 0
-light = False
+light = True
 blinked = False
 class tempException(Exception):
     pass
@@ -86,7 +86,7 @@ while True:
     	#	GPIO.output(24, GPIO.LOW)
 
     	#set light to blink
-    	if ((int(time.time())%1) == 0):
+    	if ((int(time.time())%5) == 0):
     		if (blinked == False):
     			blinked = True
     			if (light):
