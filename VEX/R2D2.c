@@ -50,7 +50,7 @@ task main()
 		{ //manual mode
 			auton = false;
 
-			if (time100[T2] >= 10)
+			if (time100[T2] >= 5)
 			{
 				time100[T2] = 0;
 				if (SensorValue[in4] == false)

@@ -143,7 +143,7 @@ while True:
     		#the blue button is pressed, activate auto mode for R2D2
     		#remove decimal point
     		#remainder after div = 0 when exactly divisable by 10
-    		if (int(time.time())%10 == 0)
+    		if ((int(time.time())%10) == 0):
     			R2D2.play(r2d3) #R2D2 is a dedicated channel
 
 		#No longer using ambient music
