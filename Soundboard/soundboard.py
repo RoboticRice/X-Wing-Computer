@@ -75,7 +75,7 @@ while True:
     	in2 = GPIO.input(22) #R2
     	in3 = GPIO.input(23) #R2
     	in4 = GPIO.input(25) #R2
-    	#in5 = GPIO.input(27) #auto-R2
+    	in5 = GPIO.input(27) #auto-R2
 
     	#No longer using ambient music
     	#if (pygame.mixer.music.get_busy()):
@@ -94,7 +94,7 @@ while True:
     		timer = timer + 1
 
     	#This will play once, when pressed
-        if (in0  == False):
+        if (in0 == False):
             if (status[0] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(fail)
     			status[0] = True
@@ -105,7 +105,7 @@ while True:
     	if (counter >= 30):
     		status[1] = False
     		counter = 0
-    	elif (in1  == False):
+    	elif (in1 == False):
     		counter = counter + 1
         	if (status[1] == False): #not triggered, but should have
     			pygame.mixer.find_channel(True).play(fire)
@@ -115,7 +115,7 @@ while True:
     		counter = 0
 
     	#This will play WHILE pressed (and interupt previous playings of r2d2 sfx)
-        if (in2  == False):
+        if (in2 == False):
             if (status[2] == False): #not triggered, but should have
     			R2D2.play(r2d1) #R2D2 is a dedicated channel
     			status[2] = True
@@ -123,7 +123,7 @@ while True:
     		status[2] = False
 
     	#This will play WHILE pressed (and interupt previous playings of r2d2 sfx)
-        if (in3  == False):
+        if (in3 == False):
             if (status[3] == False): #not triggered, but should have
     			R2D2.play(r2d2) #R2D2 is a dedicated channel
     			status[3] = True
@@ -131,12 +131,19 @@ while True:
     		status[3] = False
 
     	#This will play WHILE pressed (and interupt previous playings of r2d2 sfx)
-        if (in4  == False):
+        if (in4 == False):
             if (status[4] == False): #not triggered, but should have
     			R2D2.play(r2d3) #R2D2 is a dedicated channel
     			status[4] = True
     	else:
     		status[4] = False
+
+    	if (in5 == False):
+    		#the blue button is pressed, activate auto mode for R2D2
+    		def play1():
+			    R2D2.play(r2d1)
+			t = Timer(30.0, play1)
+			t.start()
 
 		#No longer using ambient music
         #if (in3 == False): #fades out music
