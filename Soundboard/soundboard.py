@@ -62,6 +62,7 @@ status = [False]*5 #currently using states for 5 inputs
 counter = 0
 timer = 0
 light = False
+blinked = False
 class tempException(Exception):
     pass
 
@@ -85,13 +86,17 @@ while True:
     	#	GPIO.output(24, GPIO.LOW)
 
     	#set light to blink
-    	if ((int(time.time())%5) == 0):
-    		if (light):
-    			GPIO.output(24, GPIO.HIGH)
-    			light = False
-    		else:
-    			GPIO.output(24, GPIO.LOW)
-    			light = True
+    	if ((int(time.time())%1) == 0):
+    		if (blinked == False):
+    			blinked = True
+    			if (light):
+    				GPIO.output(24, GPIO.HIGH)
+    				light = False
+    			else:
+    				GPIO.output(24, GPIO.LOW)
+    				light = True
+    	else:
+    		blinked = False
 
     	#This will play once, when pressed
         if (in0 == False):
