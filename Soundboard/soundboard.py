@@ -85,7 +85,7 @@ while True:
     	#	GPIO.output(24, GPIO.LOW)
 
     	#set light to blink
-    	if ((int(time.time()*10)%50) == 0):
+    	if ((int(time.time())%1) == 0):
     		if (light):
     			GPIO.output(24, GPIO.HIGH)
     			light = False
