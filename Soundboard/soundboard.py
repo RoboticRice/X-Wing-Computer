@@ -95,6 +95,7 @@ while True:
     			light = False
     	else:
     		timer = timer + 1
+    		print timer
 
     	#This will play once, when pressed
         if (in0 == False):
