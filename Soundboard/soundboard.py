@@ -88,10 +88,10 @@ while True:
     	if ((int(time.time()*10)%50) == 0):
     		if (light):
     			GPIO.output(24, GPIO.HIGH)
-    			light = True
+    			light = False
     		else:
     			GPIO.output(24, GPIO.LOW)
-    			light = False
+    			light = True
 
     	#This will play once, when pressed
         if (in0 == False):
