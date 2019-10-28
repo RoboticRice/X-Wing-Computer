@@ -9,7 +9,8 @@
 print "Luke, you've switched off your tageting computer. What's wrong?"
 
 import pygame.mixer
-from time import sleep
+import time
+#from time import sleep
 import RPi.GPIO as GPIO
 from sys import exit
 
@@ -138,12 +139,9 @@ while True:
     	else:
     		status[4] = False
 
-    	#if (in5 == False):
-    	#	#the blue button is pressed, activate auto mode for R2D2
-    	#	def play1():
-		#	    R2D2.play(r2d1)
-		#	t = Timer(30.0, play1)
-		#	t.start()
+    	if (in5 == False):
+    		#the blue button is pressed, activate auto mode for R2D2
+    		print time.time()
 
 		#No longer using ambient music
         #if (in3 == False): #fades out music
