@@ -85,17 +85,13 @@ while True:
     	#	GPIO.output(24, GPIO.LOW)
 
     	#set light to blink
-    	if (timer >= 100):
-    		timer = 0
+    	if ((int(time.time()*10)%50) == 0):
     		if (light):
     			GPIO.output(24, GPIO.HIGH)
     			light = True
     		else:
     			GPIO.output(24, GPIO.LOW)
     			light = False
-    	else:
-    		timer = timer + 1
-    		print timer
 
     	#This will play once, when pressed
         if (in0 == False):
