@@ -44,9 +44,9 @@ pygame.mixer.init(48000, -16, 1, 1024)
 ##pygame.mixer.music.load("OTHER/Com chatter.wav")
 ##pygame.mixer.music.load("OTHER/OST Cantina Band.wav")
 
-fire = pygame.mixer.Sound("XWING/XWing fire.wav")
-#fire2 = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
-#fire3 = pygame.mixer.Sound("XWING/XWing fire 3.wav")
+#fire = pygame.mixer.Sound("XWING/XWing fire.wav")
+fire = pygame.mixer.Sound("XWING/XWing fire 2 mod.wav")
+#fire = pygame.mixer.Sound("XWING/XWing fire 3.wav")
 fail = pygame.mixer.Sound("XWING/EngineFail.wav")
 r2d1 = pygame.mixer.Sound("R2/CurtReply.wav")
 r2d2 = pygame.mixer.Sound("R2/HappyConfirmation.wav")
@@ -146,9 +146,11 @@ while True:
     	if (in5 == False):
     		#the blue button is pressed, activate auto mode for R2D2
     		#remove decimal point
-    		#remainder after div = 0 when exactly divisable by 10
-    		if ((int(time.time())%10) == 0):
-    			R2D2.play(r2d3) #R2D2 is a dedicated channel
+    		#remainder after div = 0 when exactly divisable by %num
+    		if ((int(time.time())%48) == 0):
+    			R2D2.play(r2d2) #R2D2 is a dedicated channel
+    		else if ((int(time.time())%24) == 0):
+    			R2D2.play(r2d1) #R2D2 is a dedicated channel
 
 		#No longer using ambient music
         #if (in3 == False): #fades out music
