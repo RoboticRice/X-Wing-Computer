@@ -30,7 +30,7 @@ Additional Notes:
 * Other notes.
 *************************************************************************/
 
-#define AMOUNT 127/10
+#define AMOUNT 20
 
 task main()
 {
@@ -74,6 +74,8 @@ task main()
 				speed = AMOUNT;
 				motor[port2] = speed;
 				wait10Msec(100);
+				speed = 0;
+				wait10Msec(1);
 				motor[port2] = -speed;
 				wait10Msec(100);
 				speed = 0;
