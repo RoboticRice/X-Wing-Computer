@@ -73,11 +73,11 @@ task main()
 			{
 				speed = AMOUNT;
 				motor[port2] = speed;
-				wait10Msec(100);
-				speed = 0;
-				wait10Msec(1);
+				wait10Msec(80);
+				motor[port2] = 0;
+				wait10Msec(10);
 				motor[port2] = -speed;
-				wait10Msec(100);
+				wait10Msec(80);
 				speed = 0;
 				time10[T1] = 0;
 			}
