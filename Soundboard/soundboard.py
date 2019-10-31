@@ -170,10 +170,16 @@ while True:
     	pygame.mixer.stop()
     	#pygame.mixer.music.stop() #this would be used to stop music as well, but no music is being used
     	while (inE == True):
-    		sleep(.03)
-    		inE = GPIO.input(4)  #forgot to check inE status
-    		GPIO.output(24, GPIO.HIGH) #set light to be solid when paused
-    		#Do nothing, this prevents spamming the console with print statements
+    		try:
+    			sleep(.03)
+    			inE = GPIO.input(4)  #forgot to check inE status
+    			GPIO.output(24, GPIO.HIGH) #set light to be solid when paused
+    			#Do nothing, this prevents spamming the console with print statements
+    		except KeyboardInterrupt:
+    			#pygame.mixer.stop() #technically not needed, as exit stops everything
+    			GPIO.cleanup()
+    			print "Mind tricks don't work on me, only money."
+        		exit()
     	print "You can go about your business. Move along!"
     except KeyboardInterrupt:
     	#pygame.mixer.stop() #technically not needed, as exit stops everything
