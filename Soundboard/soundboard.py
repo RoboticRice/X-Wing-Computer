@@ -149,7 +149,7 @@ while True:
     		#remainder after div = 0 when exactly divisable by %num
     		if ((int(time.time())%48) == 0):
     			R2D2.play(r2d2) #R2D2 is a dedicated channel
-    		else if ((int(time.time())%24) == 0):
+    		elif ((int(time.time())%24) == 0):
     			R2D2.play(r2d1) #R2D2 is a dedicated channel
 
 		#No longer using ambient music
